@@ -33,34 +33,39 @@ public class ArrayModifyQuiz {
             System.out.print("수정하고픈 멤버를 입력하세요 : ");
             String name = scan.nextLine();
 
+            if(name.equals("그만")){
+                System.out.println("입력을 종료합니다.");
+                break;
+            }
 
+             //인덱스 탐색 
+             // 인덱스는 0 부터 시작이기 때문에 음수가 뜬다면 찾자 못한 것임
+             int idx = -1;
              for (int i = 0; i < kakao.length; i++) {
                 if (name.equals(kakao[i])) {
-                    //이름 알기
-                    //System.out.println(kakao[i]);
-                    // 인덱스 찾기
-                    //System.out.println("탐색완료 인덱스 : " + i);
-                    flag = true;
-                    System.out.print("새롭게 지을 이름을 작성해 주세요 : ");
-                    String newName = scan.nextLine();
-                    kakao[i] = newName;
-
+                    idx = i;
+                    break;
                 }
 
-
             }
-             if(!flag){
-                 System.out.println("탐색 실패 입니다.");
-                continue;
+             // 수정 여부 판단
+             if(idx != -1){
+                 System.out.printf("%s이름을 변경합니다 : ", name);
+                 String newName = scan.nextLine();
+                 kakao[idx] = newName;
+                 System.out.println("변경 완료");
+                 System.out.println("변경이 된 정보 : " + Arrays.toString(kakao));
+                break;
+             }else {
+                 System.out.printf("%s는 없는 이름 입니다. \n", name);
              }
 
-             break;
 
 
 
         }
 
-        System.out.println(Arrays.toString(kakao));
+        scan.close();
 
     }
 }
