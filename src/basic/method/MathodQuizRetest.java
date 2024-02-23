@@ -74,7 +74,7 @@ public class MathodQuizRetest {
 
         // 이후 삭제 로직 시작
         // 매개값을 확인 해야 하므로 int i = 0이 아닌 int i = idx로 시작한다
-        for (int i = idx; i < foods.length; i++) {
+        for (int i = idx; i < foods.length - 1; i++) {
 
             foods[i] = foods[i + 1];
 
