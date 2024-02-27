@@ -40,10 +40,18 @@ public class MainClass {
 
         System.out.println("----------------------------");
 
-        Car myGv80 = kim.buyCar("gv80");
+        Gv80 myGv80 = (Gv80) kim.buyCar("gv80");
         myGv80.run();
+        myGv80.activeAutoPilot();
+//        Gv80 g = (Gv80) myGv80;
+//        g.activeAutoPilot();
 
+        System.out.println("----------------------------");
 
+        CarShop shop = new CarShop();
+        shop.carPrice(s2);
+        shop.carPrice(g1);
+        shop.carPrice(p3);
 
 
     }
