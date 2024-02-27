@@ -24,6 +24,7 @@ public class Mage extends Player {
                 continue;
             }
 
+            // 10 ~ 15 사이의 변수
             int attck = (int) (Math.random() * 6 + 10);
 
             p.hp -= attck;
