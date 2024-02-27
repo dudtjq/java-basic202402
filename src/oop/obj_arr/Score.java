@@ -55,16 +55,26 @@ public class Score {
         return total;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    /*
+    public void setTotal() {
+        // 이미 국어 영어 수학 점수가 세팅이 완료 되었다고 가정
+        this.total = this.korean + this.english + this.math;
     }
+    */
 
     public double getAvg() {
         return avg;
     }
+/*
+    public void setAvg() {
+        this.avg = this.total / 3.0;
+    }
+*/
 
-    public void setAvg(double avg) {
-        this.avg = avg;
+    //총점과 평균을 한번에 계산해서 세팅하는 메서드
+    public void setTotalAndAvg(){
+        this.total = this.korean + this.english + this.math;
+        this.avg = this.total / 3.0;
     }
 
     Score(){
@@ -82,10 +92,22 @@ public class Score {
 
     }
 
+    // 점수 유효성 검증
+    public boolean isValidateScore(int score){
+
+        if(score < 0 || score > 100){
+            System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
+            return false;
+        }
+
+        return true;
 
 
-    void studentInfo(){
-        System.out.printf("이름 : %s, 국어 : %d점, 영어 : %d점, 수학 : %d점, 총점 : %d점, 평균 : %.1f점\n"
+    }
+
+
+    void scoreInfo(){
+        System.out.printf("이름 : %s, 국어 : %d점, 영어 : %d점, 수학 : %d점\n총점 : %d점, 평균 : %.1f점\n"
         , this.name, this.korean, this.english, this.math, this.total, this.avg);
 
     }

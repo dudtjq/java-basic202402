@@ -24,54 +24,61 @@ public class ScoreMain {
 
         Scanner scan = new Scanner(System.in);
 
-        // 배열의 길이가 3인 members를 생성
+        // 배열의 길이가 100인 infos 생성
         Score[] infos = new Score[100];
 
-        int total = 0;
-        double avg;
-        for (int i = 0; i <infos.length ; i++) {
+        System.out.println("*** 학생 점수 입력 프로그램 ***");
+        System.out.println("이름 입력창에 '그만'을 입력하시면 종료 됩니다.");
 
+       //  배열안에 index의 값을 넣기 위해 초기화
+        int idx = 0;
+//        while (infos[infos.length-1] == null){
+        
+            while (idx != infos.length){
             System.out.print("이름을 입력하세요 : ");
             String name = scan.next();
 
             if(name.equals("그만")){
+                System.out.println("입력을 종료 합니다.");
                 break;
             }
 
-            if(name.equals(" ")){
-                System.out.println("이름을 입력해주세요.");
-            }
+            Score s = new Score();
 
             System.out.print("국어점수를 입력하세요 : ");
             int korean = scan.nextInt();
 
-            if(korean < 0 || korean > 100){
-                System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
-                break;
-            }
+            if(!s.isValidateScore(korean)) continue;
 
             System.out.print("영어점수를 입력하세요 : ");
             int english = scan.nextInt();
 
-            if(english < 0 || english > 100){
-                System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
-                break;
-            }
+            if(!s.isValidateScore(english)) continue;
 
             System.out.print("수학점수를 입력하세요 : ");
             int math = scan.nextInt();
 
-            if(math < 0 || math > 100){
-                System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
-                break;
-            }
+            if(!s.isValidateScore(math)) continue;
 
-            total = korean + english + math;
-            avg = total / 3.0;
+            s.setName(name);
+            s.setKorean(korean);
+            s.setEnglish(english);
+            s.setMath(math);
 
-            infos[i] = new Score(name, korean, english, math, total, avg);
-        }
+            s.setTotalAndAvg();
 
+//            total = korean + english +math;
+//            double avg = total / 3.0;
+//            s.setTotal(total);
+//            s.setAvg(avg);
+
+            // 배열 안에 추가
+            infos[idx] = s;
+            idx++;
+
+            System.out.println("*** 학생 정보 입력 완료 ***\n");
+            
+        }// 입력 반복문 끝
 
         for (Score info : infos) {
 
@@ -79,9 +86,59 @@ public class ScoreMain {
                 break;
             }
 
-            info.studentInfo();
-
+            info.scoreInfo();
+            System.out.println("--------------------------------");
         }
+
+        scan.close();
+
+//        int total = 0;
+//        double avg;
+//        for (int i = 0; i <infos.length ; i++) {
+//
+//            System.out.print("이름을 입력하세요 : ");
+//            String name = scan.next();
+//
+//            if(name.equals("그만")){
+//                break;
+//            }
+//
+//            if(name.equals("")){
+//                System.out.println("이름을 입력해주세요.");
+//            }
+//
+//            System.out.print("국어점수를 입력하세요 : ");
+//            int korean = scan.nextInt();
+//
+//            if(korean < 0 || korean > 100){
+//                System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
+//                break;
+//            }
+//
+//            System.out.print("영어점수를 입력하세요 : ");
+//            int english = scan.nextInt();
+//
+//            if(english < 0 || english > 100){
+//                System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
+//                break;
+//            }
+//
+//            System.out.print("수학점수를 입력하세요 : ");
+//            int math = scan.nextInt();
+//
+//            if(math < 0 || math > 100){
+//                System.out.println("0 ~ 100점 사이의 점수를 입력해주세요.");
+//                break;
+//            }
+//
+//            total = korean + english + math;
+//            avg = total / 3.0;
+//
+//            infos[i] = new Score(name, korean, english, math, total, avg);
+//        }
+
+
+
 
 
 
