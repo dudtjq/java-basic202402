@@ -24,8 +24,11 @@ public class RandomExample {
         int k = random.nextInt(91) + 10;
         System.out.println("k = " + k);
 
+        // true false 랜덤 리턴
         boolean b = random.nextBoolean();
         System.out.println("b = " + b);
+        
+        
 
 
     }
