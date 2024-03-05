@@ -19,6 +19,8 @@ public class ListDelete {
         while (true){
 
             if(kakao.isEmpty()){
+                System.out.println("모든 정보가 삭제가 되었습니다.");
+                System.out.println("프로그램을 종료합니다.");
                 break;
             }
 
