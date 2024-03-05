@@ -14,6 +14,7 @@ public class ListDelete {
 
         Collections.addAll(kakao, "무지", "네오", "어피치", "라이언", "제이지", "춘식이");
         System.out.println("현재 저장된 친구들 : " + kakao);
+        System.out.println("그만 이라고 입력이 되면 프로그램을 종료합니다.");
 
         while (true){
 
@@ -23,6 +24,13 @@ public class ListDelete {
 
             System.out.print("삭제할 친구를 입력하세요 : ");
             String name = scan.nextLine();
+
+
+            if(name.equals("그만")){
+                System.out.println("프로그램을 종료합니다.");
+                System.out.println("삭제가 된 정보 : " + kakao);
+                break;
+            }
 
         /*
          - 입력받은 이름을 리스트 내에서 삭제하세요.
