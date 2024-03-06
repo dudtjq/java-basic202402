@@ -41,7 +41,7 @@ public class Lotto {
 
         while (true){
            int bonus = r.nextInt(45) + 1;
-           if(win.contains(bonus)){
+           if(!win.contains(bonus)){
                return bonus;
            }
         }
