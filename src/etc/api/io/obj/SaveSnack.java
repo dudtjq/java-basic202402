@@ -12,9 +12,9 @@ public class SaveSnack {
         List<Snack> snackList = new ArrayList<>();
 
         Collections.addAll(snackList,
-                new Snack("콘칲", 1970, 1500, "Good"),
-                new Snack("사브레", 1980, 2500, "Bad"),
-                new Snack("오징어집", 1985, 1800, "SoSo")
+                new Snack("콘칲", 1970, 1500, Snack.Taste.GOOD),
+                new Snack("사브레", 1980, 2500, Snack.Taste.BAD),
+                new Snack("오징어집", 1985, 1800, Snack.Taste.SOSO)
                 );
 
             try (FileOutputStream fos = new FileOutputStream("C:/workspace/snack.sav")) {
