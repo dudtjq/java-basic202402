@@ -111,12 +111,11 @@ public class ArtistRepository {
     // 로드 기능 FileInputStream ObjectInputStream
     public void loadData() {
 
-        // 존재 한다면 로드르 진행해서 artistList에 할당 (대입)해야함
-
         File file = new File(Utility.FILE_PATH + "/song.sav");
 
         // 세이브 파일이 존재 하는지 부터 체크
         if(file.exists()){
+            // 존재 한다면 로드르 진행해서 artistList에 할당 (대입)해야함
             try (FileInputStream fis = new FileInputStream(Utility.FILE_PATH + "/song.sav")){
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 // 형 변환
