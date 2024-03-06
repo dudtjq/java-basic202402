@@ -4,8 +4,14 @@ import java.util.Scanner;
 
 public class Utility {
 
-    static Scanner scan = new Scanner(System.in);
+    public static final String FILE_PATH = "C:/workspace/music";
 
+    static Scanner scan;
+
+
+    static {
+        scan = new Scanner(System.in);
+    }
 
     // 입력창의 구분을 위해 줄을 그어주는 메서드
     public static void makeLine(){
