@@ -20,9 +20,12 @@ public class AppUi {
 
         try {
             number = scan.nextInt();
+
         }catch (InputMismatchException e){
             System.out.println("# 올바른 정수 입력값이 아닙니다.\n");
-            scan.nextLine();
+
+        }finally {
+            scan.nextLine(); // try에도(엔터 입력값) catch에서도(쓰레기 문자열 수거) nextLine이 동작해야 함
         }
 
         return number;
@@ -40,6 +43,18 @@ public class AppUi {
         System.out.println("### 2. 대여 주문 관리 시스템");
         System.out.println("### 3. 영화 DVD 관리 시스템");
         System.out.println("### 4. 프로그램 종료");
+        makeLine();
+
+    }
+
+    // 회원 관리 시스템 화면 출력
+    public static void userManagementScreen(){
+
+        System.out.println("\n========= 회원 관리 시스템 =========");
+        System.out.println("### 1. 신규 회원 추가");
+        System.out.println("### 2. 회원 검색");
+        System.out.println("### 3. 회원 탈퇴");
+        System.out.println("### 4. 첫 화면으로 가기");
         makeLine();
 
     }
