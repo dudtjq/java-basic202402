@@ -122,4 +122,11 @@ public class MovieRepository {
         return searchedList;
 
     }
+
+    public Movie deleteMovie(int delSerialNumber) {
+
+        return movieDatabase.remove(delSerialNumber);
+
+
+    }
 }
