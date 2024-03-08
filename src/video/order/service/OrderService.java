@@ -153,11 +153,12 @@ public class OrderService implements AppService {
 
                 rentalUser.addOrder(newOrder);// 회원 대여 목록에 주문을 추가
 
-                String phoneNumber = rentalUser.getPhoneNumber();
+                String phoneNumber = rentalUser.getPhoneNumber();// 출력문을 위해 얻은 전화 번호
                 //lastIndexOf(str) : 해당 문자열의 위치를 뒤에서부터 탐색
                 // 뒤에서 탐색을 시작해서 -를 찾아라 -> 그 "-" 이후로부터 끝까지 추출해라
+                // + 1 을 해주지 않으면 - 까지 포함 하여 추출 하기 때문에 +1을 해준다.
                 System.out.printf("\n ### [%s(%s)회원님] 대여 처리가 완료되었습니다. 감사합니다."
-                , rentalUser.getUserName(), rentalUser.getPhoneNumber().substring(phoneNumber.lastIndexOf("-")));
+                , rentalUser.getUserName(), rentalUser.getPhoneNumber().substring(phoneNumber.lastIndexOf("-")+ 1));
 
                 System.out.printf("### 현재 등급 : [%s], 총 누적 결재금액 : %d 원 \n",
                         rentalUser.getGrade(), rentalUser.getTotalPaying());
