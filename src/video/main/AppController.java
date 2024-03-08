@@ -32,11 +32,15 @@ public class AppController {
                 break;
 
             default:
-                System.out.println(" # 메뉴에 있는 정수를 입력해주세요.\n");
+                System.out.println(" # 존재하지 않는 메뉴 입니다.\n");
 
         }
 
-        service.start();
+        try {
+            service.start();
+        } catch (Exception e) {
+            System.out.println(" # 메뉴에 있는 정수를 입력해주세요.\n");
+        }
 
     }
 
