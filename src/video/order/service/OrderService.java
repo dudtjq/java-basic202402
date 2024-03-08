@@ -143,8 +143,8 @@ public class OrderService implements AppService {
                 // 대여 완료
                 User rentalUser = userRepository.findUserByNumber(userNumber); // 렌탈 유저 정보 획득
 
-                rantalMovie.setRental(true);
-                rantalMovie.setRetalUser(rentalUser);
+                rantalMovie.setRental(true); // 대여 상태를 대여중으로 변경
+                rantalMovie.setRetalUser(rentalUser);// 영화 객체의 렌탈 유저등록
 
                 rentalUser.setTotalPaying(rantalMovie.getCharge()); // 영화 대여 금액을 회원 총 결제금액에 누적 갱신
 
