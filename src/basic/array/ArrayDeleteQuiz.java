@@ -30,8 +30,13 @@ public class ArrayDeleteQuiz {
                 break;
             }
 
-            System.out.print("삭제할 멤버 이름을 작성해주세요 : ");
+            System.out.print("그만이라고 작성시 프로그램이 종료됩니다.\n삭제할 멤버 이름을 작성해주세요 : ");
             String name = scan.nextLine();
+
+            if(name.equals("그만")){
+                System.out.println("현재 목록에 있는 멤버" + Arrays.toString(kakao));
+                break;
+            }
 
             int idx = -1;
             for (int i = 0; i < kakao.length; i++) {

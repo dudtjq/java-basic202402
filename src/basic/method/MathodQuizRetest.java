@@ -11,6 +11,7 @@ public class MathodQuizRetest {
     //매개값으로 전달된 값을 마지막 위치에 채우기
     static void push(String newFood) {
 
+        //기존 배열보다 크기가 하나 큰 배열을 선언해서 값 고대로 내리기
         // 기존 배열보다  크기가 하나 큰 배열 생성
         String[] temp = new String[foods.length + 1];
 
@@ -20,6 +21,7 @@ public class MathodQuizRetest {
             temp[i] = foods[i];
 
         }
+        // 매개값으로 전달된 값을 마지막 위치에 채우기
         // 배열 마지막에 값을 넣기 위해 진행 
         temp[temp.length - 1] = newFood;
 
