@@ -63,25 +63,46 @@ public class Main {
 
         // 연습 5: Milan에 거주하는 거래자가 한명이라도 있는지 여부 확인?
         boolean flag1 = transactions.stream()
-                .anyMatch(transaction -> transaction.getTrader().getCity() == "Milan");
+                .anyMatch(transaction -> transaction.getTrader().getCity().equalsIgnoreCase("Milan"));
 
         System.out.println("flag1 = " + flag1);
 
         System.out.println("===============================================================================");
 
         // 연습 6: Cambridge에 사는 거래자의 모든 거래액의 총합 출력.
-        int sum = 0;
-        transactions.stream()
-                .filter(transaction -> transaction.getTrader().getCity() == "Cambridge")
-                .forEach((transaction) -> ( sum += transaction.getValue());
+//        List<Integer> list = transactions.stream()
+//                .filter(transaction -> transaction.getTrader().getCity().equalsIgnoreCase("Cambridge"))
+//                .map(Transaction::getValue)
+//                .toList();
+//
+//        int sum = 0;
+//        for (Integer i : list) {
+//            sum += i;
+//        }
+//        System.out.println("sum = " + sum);
+
+        int valueSum = transactions.stream()
+                .filter(transaction -> transaction.getTrader().getCity().equalsIgnoreCase("Cambridge"))
+                .mapToInt(Transaction::getValue)
+                .sum();
+
+        System.out.println("valueSum = " + valueSum);
+
 
         System.out.println("===============================================================================");
 
         // 연습 7: 모든 거래에서 최고 거래액은 얼마인가?
-        Transaction transaction = transactions.stream()
-                .max(Comparator.comparing(Transaction::getValue)).get();
+//        Transaction transaction = transactions.stream()
+//                .max(Comparator.comparing(Transaction::getValue)).get();
+//
+//        System.out.println("transaction = " + transaction.getValue());
 
-        System.out.println("transaction = " + transaction);
+        int maxValue = transactions.stream()
+                .mapToInt(Transaction::getValue)
+                .max()
+                .getAsInt();
+
+        System.out.println("maxValue = " + maxValue);
 
         System.out.println("===============================================================================");
 
@@ -90,6 +111,10 @@ public class Main {
                 .min(Comparator.comparing(Transaction::getValue)).get();
 
         System.out.println("transaction1 = " + transaction1);
+
+//        transactions.stream()
+//                .min(Comparator.comparing(Transaction::getValue))
+//                .ifPresent(System.out::println);
 
 
     }
